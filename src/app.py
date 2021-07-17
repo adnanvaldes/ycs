@@ -75,22 +75,17 @@ def start_winding(on_transition=on_transition, off_transition=off_transition, up
 def ping_bulbs():
     return discover_bulbs()
 
-@docker_log()
-def test(x):
-    print('TEST!!!!!')
-    return x+x
-
 def main():
 
-    logger.warning("WARNING - YOU ARE ON A DEV BRANCH. THINGS MAY BE BROKEN!")
+    logger.warning("YOU ARE ON A DEV BRANCH. THINGS MAY BE BROKEN!")
 
     schedule.every().day.at(update_time).do(light_scheduler, lat=lat, lng=lng, morning=morning, evening=evening).tag("Main scheduler")
     schedule.every(ping_bulb_freq).seconds.do(ping_bulbs).tag("Ping bulbs")
     while True:
         schedule.run_pending()
         all_jobs = schedule.get_jobs()
-        logger.debug(all_jobs)
-        logger.debug("WARNING - YOU ARE ON A DEV BRANCH. THINGS MAY BE BROKEN!")
+        logger.info(all_jobs)
+        logger.warning("YOU ARE ON A DEV BRANCH. THINGS MAY BE BROKEN!")
         test(2)
         time.sleep(5)
 
