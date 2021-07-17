@@ -89,4 +89,5 @@ def main():
         time.sleep(1)
 
 if __name__ == "__main__":
+    sys.stdout.write("WARNING - YOU ARE ON A DEV BRANCH. THINGS MAY BE BROKEN!")
     main()
