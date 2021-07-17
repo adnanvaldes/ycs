@@ -86,7 +86,6 @@ def main():
         all_jobs = schedule.get_jobs()
         logger.info(all_jobs)
         logger.warning("YOU ARE ON A DEV BRANCH. THINGS MAY BE BROKEN!")
-        test(2)
         time.sleep(5)
 
 if __name__ == "__main__":
