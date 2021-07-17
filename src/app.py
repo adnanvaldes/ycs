@@ -77,16 +77,13 @@ def ping_bulbs():
 
 def main():
 
-    logger.warning("YOU ARE ON A DEV BRANCH. THINGS MAY BE BROKEN!")
-
     schedule.every().day.at(update_time).do(light_scheduler, lat=lat, lng=lng, morning=morning, evening=evening).tag("Main scheduler")
     schedule.every(ping_bulb_freq).seconds.do(ping_bulbs).tag("Ping bulbs")
     while True:
         schedule.run_pending()
         all_jobs = schedule.get_jobs()
         logger.info(all_jobs)
-        logger.warning("YOU ARE ON A DEV BRANCH. THINGS MAY BE BROKEN!")
-        time.sleep(5)
+        time.sleep(15)
 
 if __name__ == "__main__":
     main()
