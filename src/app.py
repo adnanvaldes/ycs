@@ -65,12 +65,10 @@ def start_winding(upDuration=upDuration, downDuration=downDuration, up=False, do
         if up:
             print(f"Beginning wind-up routine - complete at {datetime.utcnow() + timedelta(minutes=upDuration)}")
             Bulb(bulb['ip'], effect='smooth', duration=minutes_to_ms(upDuration), auto_on=True).turn_on()
-            return schedule.CancelJob
 
         elif down:
             print(f"Beginning wind-down routine - complete at {datetime.utcnow() + timedelta(minutes=downDuration)}")
             Bulb(bulb['ip'], effect='smooth', duration=minutes_to_ms(downDuration)).turn_off()
-            return schedule.CancelJob
     return schedule.CancelJob
 
 @docker_log()
