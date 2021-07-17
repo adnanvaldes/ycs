@@ -1,4 +1,6 @@
 import logging
+from logging.handlers import RotatingFileHandler
+
 
 class StatusCode(Exception):
     """ Exception raised for status code NOT 200"""
