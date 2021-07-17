@@ -87,3 +87,6 @@ def main():
         all_jobs = schedule.get_jobs()
         print(all_jobs)
         time.sleep(1)
+
+if __name__ == "__main__":
+    main()
