@@ -1,5 +1,4 @@
-import sys
-from datetime import datetime, timedelta
+import logging
 
 class StatusCode(Exception):
     """ Exception raised for status code NOT 200"""
@@ -28,18 +27,35 @@ def docker_log():
         return call
     return decorate
 
-def rounded_time():
-    d = datetime.utcnow()
-    return datetime.utcnow() - timedelta(microseconds=d.microsecond)
+
 
 def error_log(func, err):
-    sys.stderr.write(f"{rounded_time()} - ERROR - {err}")
+    logger.error(err)
+
 
 def debug_log(func):
-    sys.stdout.write(f"{rounded_time()} - DEBUG - {func.__name__} success.")
+    logger.info(f'{func.__name__} finished.')
+
 
 def info_log(func):
-    sys.stdout.write(f"{rounded_time()} - DEBUG - {func.__name__} starting... \n")
+    logger.info(f"{func.__name__} starting...")
+
 
 def output_log(func, output):
-    sys.stdout.write(f"\n{rounded_time()} - OUTPUT - {func.__name__}: \n{output} \n")
+    logger.debug(f"OUTPUT - {func.__name__}: {output}")
+
+
+
+# Custom logging
+
+logger = logging.getLogger('schedule')
+logger.setLevel(level=logging.DEBUG)
+stream_handler = logging.StreamHandler()
+stream_handler.setLevel(logging.DEBUG)
+file_handler = logging.FileHandler('ycs.log')
+file_handler.setLevel(logging.WARNING)
+log_format = logging.Formatter(fmt='%(asctime)s - %(levelname)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')
+stream_handler.setFormatter(log_format)
+file_handler.setFormatter(log_format)
+logger.addHandler(stream_handler)
+logger.addHandler(file_handler)
