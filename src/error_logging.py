@@ -1,4 +1,5 @@
 import logging
+from logging.handlers import RotatingFileHandler
 
 class StatusCode(Exception):
     """ Exception raised for status code NOT 200"""
@@ -48,11 +49,13 @@ def output_log(func, output):
 
 # Custom logging
 
+logFile = "/code"
+
 logger = logging.getLogger('schedule')
 logger.setLevel(level=logging.DEBUG)
 stream_handler = logging.StreamHandler()
 stream_handler.setLevel(logging.DEBUG)
-file_handler = logging.FileHandler('ycs.log')
+file_handler = logging.RootatingFileHandler('ycs.log', maxBytes=10*1024*1024, backupCount=2)
 file_handler.setLevel(logging.DEBUG)
 log_format = logging.Formatter(fmt='%(asctime)s - %(levelname)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')
 stream_handler.setFormatter(log_format)
