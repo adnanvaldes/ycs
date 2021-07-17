@@ -48,9 +48,6 @@ def output_log(func, output):
 
 
 # Custom logging
-
-logFile = "/code"
-
 logger = logging.getLogger('schedule')
 logger.setLevel(level=logging.DEBUG)
 stream_handler = logging.StreamHandler()
