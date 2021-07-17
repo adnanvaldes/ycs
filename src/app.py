@@ -20,7 +20,7 @@ try:
     envs = True
 
 except KeyError:
-    sys.stderr.write("ERROR - COULD NOT PARSE AT LEAST ONE ENV VARIABLE. USING DEFAULT VALUES.")
+    logger.warning("COULD NOT PARSE AT LEAST ONE ENV VARIABLE. USING DEFAULT VALUES.")
     on_transition = 60
     off_transition = 60
     lat = 49.217876
@@ -79,6 +79,7 @@ def start_winding(on_transition=on_transition, off_transition=off_transition, up
 def ping_bulbs():
     return discover_bulbs()
 
+@docker_log()
 def main():
 
     schedule.every().day.at(update_time).do(light_scheduler, lat=lat, lng=lng, morning=morning, evening=evening).tag("Main scheduler")
