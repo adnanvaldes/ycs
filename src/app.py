@@ -5,7 +5,6 @@ import requests
 import schedule
 import logging
 import time
-import sys
 import os
 
 try:
@@ -48,9 +47,11 @@ def light_scheduler(lat, lng, morning, evening, on_transition=on_transition, off
             try:
                 morning = to_time(sunTimes[morning])
                 evening = to_time(sunTimes[evening])
+                logger.debug(f"Using {morning} for sunrise and {evening} for sunset.")
             except KeyError:
                 morning = morning
                 evening = evening
+                logger.debug(f"Using {morning} for sunrise and {evening} for sunset.")
 
         schedule.every().day.at(morning).do(start_winding, up=True, on_transition=on_transition).tag("Morning routine")
         logging.debug(f"Sunrise routine scheduled at {morning}")
