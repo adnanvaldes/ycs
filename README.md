@@ -18,7 +18,7 @@ There are several options available (see * [Setup & Usage](#setup-&-usage)). If 
 
 ### Docker
 
-The easiest way to use YCS is to deploy it as a docker container. The latest image is available via:
+The easiest way to use YCS is to deploy it as a docker container. The image itself is about 140 MB. The latest image is available via:
 
 `docker pull einhard/ycs`
 
@@ -73,6 +73,8 @@ Over time, the following functionality is expected to be added:
 - [ ] Include localization/timezone awareness to standarize time, instead of juggling UTC vs system time.
 - [ ] Create more complex transition options - such as a transition between civil twilight and astronomical twilight.
 - [ ] Create Django-based webserver for a GUI that can control settings, instead of having to redeploy container with updated ENV variables.
-- [ ] Add persistence to user settings by including a database
+- [ ] Add persistence to user settings by including a database.
+- [ ] Add Nanoleaf light support.
+- [ ] Add Phillips Hue light support.
 
 Thank you for reading this far. If you have any suggestions, want to report bugs, or change the functionality of the script, please create an issue or make a pull request.
