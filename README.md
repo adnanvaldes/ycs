@@ -10,7 +10,7 @@ A simple, configurable service to control Yeelight bulbs in a network. Lights ca
 
 ## General Information
 
-YCS is a Python 3 script designed with Docker in mind. It's purpose is to gently simulate light changes in the morning and evening - a tool particularly useful for those who live in basements with poor direct sunlight. The script can be configured to, for exmaple, begin turning on the lights at sunrise every day, over a period of 60 minutes, and/or slowly turn off the lights as evening civil twilight begins, over a different, custom period.
+YCS is a Python 3 script designed with Docker in mind. It's purpose is to gently simulate light changes in the morning and evening - a tool particularly useful for those who live in basements with poor direct sunlight. The script can be configured to, for example, begin turning on the lights at sunrise every day, over a period of 60 minutes, and/or slowly turn off the lights as evening civil twilight begins, over a different, custom period.
 
 There are several options available (see * [Setup & Usage](#setup-&-usage)). If an option is not included or if there's any problem, create an issue with a request and I will try my best to make it happen/fix it.
 
