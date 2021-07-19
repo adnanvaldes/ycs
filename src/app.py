@@ -22,8 +22,8 @@ except KeyError:
     logger.warning("COULD NOT PARSE AT LEAST ONE ENV VARIABLE. USING DEFAULT VALUES.")
     on_transition = 60
     off_transition = 60
-    lat = 49.217876
-    lng = -123.142097
+    lat = 49.19333386092744
+    lng = -123.17707295914504
     update_time = "10:00"
     morning = 'sunrise'
     evening = 'civil_twilight_end'
