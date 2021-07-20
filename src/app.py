@@ -69,7 +69,7 @@ def start_winding(on_transition=on_transition, off_transition=off_transition, up
     for bulb in discover_bulbs():
         if up:
             logging.debug(f"Beginning wind-up routine - complete at {datetime.utcnow() + timedelta(minutes=on_transition)}")
-            Bulb(bulb['ip'], effect='smooth', duration=minutes_to_ms(on_transition), auto_on=True).turn_on()
+            Bulb(bulb['ip'], effect='smooth', duration=minutes_to_ms(on_transition)).turn_on()
 
         elif down:
             logging.debug(f"Beginning wind-down routine - complete at {datetime.utcnow() + timedelta(minutes=off_transition)}")
