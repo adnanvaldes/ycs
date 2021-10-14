@@ -32,6 +32,15 @@ If you want to confirm that YCS is working, set the update time and the morning 
 
 *Note: The update time and any user ENVs that specify time for scheduled events are based on the host system time. However, times derived from astronomical events - sunset, twilight, etc. - are all in UTC. See [Road Map](#road-map).*
 
+#### arm64 Docker Instructions
+
+Run the following commands as root to clone, build, and run the Dockerfile.
+```
+git clone git://github.com/AdnanValdes/ycs
+docker build ./ -t ycs:arm
+docker run ycs:arm
+```
+
 ### Bare metal
 
 If you want to run YCS directly on your computer, make sure you have Python installed. Any 3.x version should work, although it has only been tested on Python 3.8+.
