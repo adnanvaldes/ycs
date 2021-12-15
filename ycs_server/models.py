@@ -2,7 +2,7 @@ from django.db import models
 
 
 # Create your models here.
-
+MAX_OBJECTS = 1
 class UserSettings(models.Model):
 	on_transition = models.IntegerField()
 	off_transition = models.IntegerField()
@@ -13,7 +13,7 @@ class UserSettings(models.Model):
 	ping_bulb_freq = models.IntegerField()
 
 	def __str__(self):
-		return f"Current settings:\nMorning: {self.morning}\nEvening: {self.evening}\nOn Transition:{self.on_transition}\nOff Transition: {self.off_transition}"
+		return f"Current settings:\nMorning: {self.morning}\nEvening: {self.evening}\nOn Transition:{self.on_transition}\nOff Transition: {self.off_transition}\nLatLng: {self.lat}, {self.lng}"
 
 
 class SunTimes(models.Model):
