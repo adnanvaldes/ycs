@@ -1,6 +1,6 @@
 from yeelight import discover_bulbs, Bulb
 from datetime import datetime, timedelta
-from .error_logging import *
+from error_logging import *
 import requests
 import schedule
 import logging
