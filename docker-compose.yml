@@ -1,0 +1,26 @@
+version: "3"
+services:
+  ycs:
+    command:
+      - python ./app.py
+    container_name: ycs
+    environment:
+      - PATH=/root/.local:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      - LANG=C.UTF-8
+      - GPG_KEY=E3FF2839C048B25C084DEBE9B26995E310250568
+      - PYTHON_VERSION=3.8.11
+      - PYTHON_PIP_VERSION=21.1.3
+      - PYTHON_GET_PIP_URL=https://github.com/pypa/get-pip/raw/a1675ab6c2bd898ed82b1f58c486097f763c74a9/public/get-pip.py
+      - PYTHON_GET_PIP_SHA256=6665659241292b2147b58922b9ffe11dda66b39d52d8a6f3aa310bc1d60ea6f7
+      - LAT=49.19333386092744
+      - LNG=-123.17707295914504
+      - ON_START_TIME=sunrise
+      - OFF_START_TIME=sunset
+      - ON_TRANSITION=60
+      - OFF_TRANSITION=60
+      - SUN_UPDATE_TIME=10:00
+      - PING_BULB_FREQ=600
+    image: einhard/ycs:latest
+    network-mode: "host"
+    restart: unless-stopped
+    working_dir: /code
